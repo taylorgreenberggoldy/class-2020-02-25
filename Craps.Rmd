@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 ```
 
@@ -20,6 +20,21 @@ roll_two_die <- function() {
  roll_one_die() + roll_one_die()
 }
 
-map_int(1:10, ~ roll_two_die())
+
+x <- tibble(outcome = map_int(1:6, ~roll_two_die()))
+
+x %>%
+ggplot(aes(outcome)) + 
+  geom_histogram()
+
 ```
+
+```{r}
+
+# assume that john mark is honest.  How unsusual is it to win against Ishan 4 to 0
+
+
+```
+
+
 
