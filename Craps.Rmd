@@ -1,0 +1,25 @@
+---
+title: "Craps"
+author: "Taylor Greenberg Goldy"
+date: "2/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+roll_one_die <- function() {
+  
+sample(x =1:6, size = 1) 
+}
+
+roll_two_die <- function() {
+ roll_one_die() + roll_one_die()
+}
+
+map_int(1:10, ~ roll_two_die())
+```
+
